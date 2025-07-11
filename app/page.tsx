@@ -290,7 +290,7 @@ export default function Portfolio() {
             {projects.map((project, index) => (
               <Card key={index} className="overflow-hidden">
                 <div className="aspect-video relative flex justify-center">
-                  <img src={project.image.toString()} alt={project.title} fill className="object-contain w-100" />
+                  <img src={project.image.toString()} alt={project.title}  className="object-contain w-100" />
                 </div>
                 <CardHeader>
                   <CardTitle>{project.title}</CardTitle>
