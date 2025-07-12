@@ -34,6 +34,7 @@ export default function Portfolio() {
       github: "https://github.com",
       demo: "https://demo.com",
       image: "https://cybercx.com.au/wp-content/uploads/2022/12/PH2.png",
+      link: "https://www.phriendlyphishing.com/"
     },
     {
       title: "UJET",
@@ -42,6 +43,7 @@ export default function Portfolio() {
       github: "https://github.com",
       demo: "https://demo.com",
       image: "https://mms.businesswire.com/media/20250624475768/en/2505031/22/download.jpg",
+      link: 'https://ujet.cx/'
     },
     {
       title: "Motorist",
@@ -50,6 +52,7 @@ export default function Portfolio() {
       github: "https://github.com",
       demo: "https://demo.com",
       image: "https://www.goldbell.com.sg/wp-content/uploads/2020/04/Motorist-Logo_350x250.jpg",
+      link: "https://motorist.sg/"
     },
   ]
 
@@ -288,9 +291,11 @@ export default function Portfolio() {
           </div>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {projects.map((project, index) => (
-              <Card key={index} className="overflow-hidden">
+                <Card key={index} className="overflow-hidden">
                 <div className="aspect-video relative flex justify-center">
+                  <a href={project.link}  target="_blank">
                   <img src={project.image.toString()} alt={project.title}  className="object-contain w-100" />
+                  </a>
                 </div>
                 <CardHeader>
                   <CardTitle>{project.title}</CardTitle>
@@ -304,7 +309,6 @@ export default function Portfolio() {
                     {/*  </Badge>*/}
                     {/*))}*/}
                   </div>
-
                 </CardContent>
               </Card>
             ))}
