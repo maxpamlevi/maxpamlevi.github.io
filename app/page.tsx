@@ -54,6 +54,15 @@ export default function Portfolio() {
       image: "https://www.goldbell.com.sg/wp-content/uploads/2020/04/Motorist-Logo_350x250.jpg",
       link: "https://motorist.sg/"
     },
+    {
+      title: "TVP Logistics",
+      description: "Provide Full Range Logistics Solution.",
+      tech: ["Ruby on Rails", "Python", "FastAPI", "WebSocket", "OpenAI API"],
+      github: "https://github.com",
+      demo: "https://demo.com",
+      image: "https://tvplogistics.com.vn/assets/logo-9ed8a48e1ecf591d064884a4622a1c169fb391285f69254320d8b020dfc9c178.jpg",
+      link: "https://tvplogistics.com.vn/"
+    },
   ]
 
   const experience = [
@@ -282,16 +291,16 @@ export default function Portfolio() {
         </div>
       </section>
 
-       Projects Section
+
       <section id="projects" className="px-3 py-16">
         <div className="space-y-8">
           <div className="text-center space-y-4">
             <h2 className="text-3xl font-bold tracking-tighter">Featured Projects</h2>
             <p className="text-muted-foreground">Some of my recent work that I'm proud of</p>
           </div>
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="flex flex-wrap justify-center gap-6 ">
             {projects.map((project, index) => (
-                <Card key={index} className="overflow-hidden">
+                <Card key={index} className="overflow-hidden w-full md:w-1/3 lg:w-1/4 p-4">
                 <div className="aspect-video relative flex justify-center">
                   <a href={project.link}  target="_blank">
                   <img src={project.image.toString()} alt={project.title}  className="object-contain w-100" />
