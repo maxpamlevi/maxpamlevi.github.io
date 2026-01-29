@@ -25,13 +25,13 @@ export default function ThreeBackdrop() {
     renderer.setClearColor(0x000000, 0)
     container.appendChild(renderer.domElement)
 
-    scene.fog = new THREE.FogExp2(0x0f172a, 0.035)
+    scene.fog = new THREE.FogExp2(0x020617, 0.045)
 
     const lights = new THREE.Group()
-    const ambient = new THREE.AmbientLight(0xffffff, 0.6)
-    const keyLight = new THREE.DirectionalLight(0xffe9c2, 1.1)
+    const ambient = new THREE.AmbientLight(0x0b1222, 0.85)
+    const keyLight = new THREE.DirectionalLight(0xf8fafc, 1.4)
     keyLight.position.set(6, 8, 10)
-    const rimLight = new THREE.DirectionalLight(0x60a5fa, 0.7)
+    const rimLight = new THREE.DirectionalLight(0x22d3ee, 1.05)
     rimLight.position.set(-8, -4, -6)
     lights.add(ambient, keyLight, rimLight)
     scene.add(lights)
@@ -51,9 +51,9 @@ export default function ThreeBackdrop() {
     backgroundStars.setAttribute("position", new THREE.BufferAttribute(starPositions, 3))
     const starMaterial = new THREE.PointsMaterial({
       color: 0xffffff,
-      size: 0.18,
+      size: 0.2,
       transparent: true,
-      opacity: 0.7,
+      opacity: 0.85,
       depthWrite: false,
     })
     const stars = new THREE.Points(backgroundStars, starMaterial)
@@ -110,13 +110,13 @@ export default function ThreeBackdrop() {
       mesh.position.z = options.offset?.z ?? 0
       pivot.add(mesh)
 
-      const atmosphereMaterial = new THREE.MeshBasicMaterial({
-        color: 0x93c5fd,
-        transparent: true,
-        opacity: 0.15,
-        blending: THREE.AdditiveBlending,
-        side: THREE.BackSide,
-      })
+    const atmosphereMaterial = new THREE.MeshBasicMaterial({
+      color: 0x38bdf8,
+      transparent: true,
+      opacity: 0.2,
+      blending: THREE.AdditiveBlending,
+      side: THREE.BackSide,
+    })
       const atmosphere = new THREE.Mesh(atmosphereGeometry, atmosphereMaterial)
       atmosphere.scale.copy(mesh.scale).multiplyScalar(1.06)
       atmosphere.position.copy(mesh.position)
@@ -167,23 +167,23 @@ export default function ThreeBackdrop() {
 
     createPlanet({
       radius: 1.35,
-      color: 0xf59e0b,
-      emissive: 0x78350f,
-      roughness: 0.55,
-      metalness: 0.1,
+      color: 0xb45309,
+      emissive: 0x7c2d12,
+      roughness: 0.6,
+      metalness: 0.15,
       distance: 3.2,
       tilt: 0.25,
       rotationSpeed: 0.003,
       orbitSpeed: 0.0006,
-      ring: { inner: 1.6, outer: 2.4, color: 0xfde68a, opacity: 0.4 },
+      ring: { inner: 1.6, outer: 2.4, color: 0xfde68a, opacity: 0.55 },
       moon: { distance: 2.1, speed: 0.003 },
       offset: { y: 0.4, z: -1.2 },
     })
 
     createPlanet({
       radius: 0.85,
-      color: 0x38bdf8,
-      emissive: 0x0c4a6e,
+      color: 0x1d4ed8,
+      emissive: 0x0b1d4f,
       roughness: 0.35,
       metalness: 0.2,
       distance: -4.4,
@@ -196,15 +196,15 @@ export default function ThreeBackdrop() {
 
     createPlanet({
       radius: 1.05,
-      color: 0x94a3b8,
-      emissive: 0x111827,
-      roughness: 0.75,
-      metalness: 0.05,
+      color: 0x334155,
+      emissive: 0x0f172a,
+      roughness: 0.8,
+      metalness: 0.08,
       distance: 6.2,
       tilt: 0.4,
       rotationSpeed: 0.002,
       orbitSpeed: 0.00025,
-      ring: { inner: 1.4, outer: 2.1, color: 0x64748b, opacity: 0.25 },
+      ring: { inner: 1.4, outer: 2.1, color: 0x64748b, opacity: 0.35 },
       offset: { y: 0.8, z: 2.6 },
     })
 
