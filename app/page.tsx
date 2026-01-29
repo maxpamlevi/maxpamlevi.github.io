@@ -1,67 +1,71 @@
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import ThreeBackdrop from "@/components/ThreeBackdrop"
 import {
-  Github,
-  Linkedin,
-  Mail,
-  ExternalLink,
-  MapPin,
   Calendar,
   Code,
-  Database,
-  Server,
-  Globe,
   Download,
+  ExternalLink,
+  Github,
+  Globe,
+  Mail,
+  MapPin,
+  Server,
+  Database,
 } from "lucide-react"
-import Image from "next/image"
 import Link from "next/link"
+import { JetBrains_Mono, Space_Grotesk } from "next/font/google"
+
+const displayFont = Space_Grotesk({ subsets: ["latin"], weight: ["400", "500", "600", "700"] })
+const monoFont = JetBrains_Mono({ subsets: ["latin"], weight: ["400", "500", "700"] })
 
 export default function Portfolio() {
   const skills = {
-    frontend: ["Angular", "JavaScript", "jQuery", "CSS3", "HTML5", "Responsive Design", "Bootstrap"],
-    backend: ["Ruby", "Ruby on Rails", "Node.js", "Sidekiq", "Redis", "MySQL", "PostgreSQL"],
-    database: ["RSpec", "Jest", "Karma", "Unit Testing"],
-    tools: [ "Git", "WebSocket", "Google Maps API", "Third-party API Integration"],
+    frontend: ["Angular", "JavaScript", "CSS3", "HTML5", "Responsive Design", "Bootstrap", "Tailwind", "NextJs"],
+    backend: ["Ruby", "Ruby on Rails", "Node.js", "Sidekiq", "Redis", "PostgreSQL"],
+    testing: ["RSpec", "Jest", "Karma", "Unit Testing"],
+    tooling: ["Git", "WebSocket", "Google Maps API", "API Integration"],
   }
 
   const projects = [
     {
       title: "Phriendly Phishing",
       description:
-        "Phriendly Phishing offers leading phishing simulation and phishing simulation training programs designed to ward off potential cyber threats.",
-      tech: ["Next.js", "TypeScript", "Stripe", "PostgreSQL", "Tailwind CSS"],
-      github: "https://github.com",
-      demo: "https://demo.com",
+        "Phriendly Phishing delivers phishing simulation training and managed security awareness programs.",
+      tech: ["Next.js", "TypeScript", "Stripe", "PostgreSQL"],
       image: "https://cybercx.com.au/wp-content/uploads/2022/12/PH2.png",
-      link: "https://www.phriendlyphishing.com/"
+      link: "https://www.phriendlyphishing.com/",
     },
     {
       title: "UJET",
-      description: "Improve customer satisfaction and streamline your operations with UJET's AI-powered Contact Center as a Service (CCaaS) platform.",
-      tech: ["React", "Node.js", "Socket.io", "MongoDB", "Express.js"],
-      github: "https://github.com",
-      demo: "https://demo.com",
+      description:
+        "AI-powered contact center platform helping teams automate workflows and elevate customer experience.",
+      tech: ["React", "Node.js", "Socket.io", "MongoDB"],
       image: "https://mms.businesswire.com/media/20250624475768/en/2505031/22/download.jpg",
-      link: 'https://ujet.cx/'
+      link: "https://ujet.cx/",
     },
     {
       title: "Motorist",
-      description: "The Motorist App is a smart vehicle management platform that's designed to simplify car ownership in Singapore.",
-      tech: ["Vue.js", "Python", "FastAPI", "WebSocket", "OpenAI API"],
-      github: "https://github.com",
-      demo: "https://demo.com",
-      image: "https://www.goldbell.com.sg/wp-content/uploads/2020/04/Motorist-Logo_350x250.jpg",
-      link: "https://motorist.sg/"
+      description: "Smart vehicle management platform designed to simplify car ownership in Singapore.",
+      tech: ["Vue.js", "Python", "FastAPI", "OpenAI"],
+      image: "https://i.ytimg.com/vi/Idw-d9_N2fM/maxresdefault.jpg",
+      link: "https://motorist.sg/",
     },
     {
       title: "TVP Logistics",
-      description: "Provide Full Range Logistics Solution.",
-      tech: ["Ruby on Rails", "Python", "FastAPI", "WebSocket", "OpenAI API"],
-      github: "https://github.com",
-      demo: "https://demo.com",
-      image: "https://tvplogistics.com.vn/assets/logo-9ed8a48e1ecf591d064884a4622a1c169fb391285f69254320d8b020dfc9c178.jpg",
-      link: "https://tvplogistics.com.vn/"
+      description: "Full-range logistics solution with route intelligence and customer visibility tools.",
+      tech: ["Ruby on Rails", "FastAPI", "Redis", "WebSocket"],
+      image:
+        "https://tvplogistics.com.vn/assets/logo-9ed8a48e1ecf591d064884a4622a1c169fb391285f69254320d8b020dfc9c178.jpg",
+      link: "https://tvplogistics.com.vn/",
+    },
+    {
+      title: "Capable-tech",
+      description: "Capable-Tech is an electronic manufacturing services provider & high-quality plastic supplier based in Ho Chi Ming City, Vietnam",
+      tech: ["NextJs", "Python", "PostgreSQL", "Docker", "NextERP", "Tailwind"],
+      image: "https://cdn-new.topcv.vn/unsafe/https://static.topcv.vn/company_logos/683fff5d8f68d1749024605.png",
+      link: "https://capable-tech.com/",
     },
   ]
 
@@ -69,255 +73,292 @@ export default function Portfolio() {
     {
       title: "Full Stack Developer",
       company: "TMA Solution",
-      period: "07/2019 – 02/2021",
-      description:
-        "• Full-stack Development: Built comprehensive education application using Ruby on Rails" +
-          "backend and Angular frontend, serving thousands of students and educators with seamless learning" +
-          "experience\n" +
-          "• Quality Assurance: Wrote and maintained comprehensive unit tests using RSpec and Jest" +
-          "frameworks, ensuring application reliability and reducing production bugs\n" +
-          "• API Development: Designed and implemented RESTful APIs for content delivery, user" +
-          "authentication, and progress tracking, enabling smooth integration between frontend and backend" +
-          "systems\n" +
-          "• Team Collaboration: Actively supported backend development initiatives, collaborated closely" +
-          "with QA teams to establish testing protocols, and participated in daily standups and sprint planning" +
-          "sessions\n" +
-          "• Performance Optimization: Optimized database queries and implemented caching strategies" +
-          "using Redis, improving application response time\n",
-    },
-    {
-      title: "Full Stack Developer",
-      company: "Ujet",
-      period: "03/2021 – 05/2022",
-      description:
-        "• Full-stack Development: Developed scalable backend solutions using Ruby on Rails and created" +
-          "responsive frontend interfaces with Angular, supporting high-traffic customer service operations\n" +
-          "• Third-party Integrations: Successfully integrated multiple CRM APIs including Kustomer and" +
-          "Zendesk, improving system interoperability and enabling seamless data synchronization between" +
-          "platforms, resulting in 50% reduction in manual data entry\n" +
-          "• Testing Excellence: Implemented comprehensive testing strategy covering unit tests, integration" +
-          "tests, and end-to-end testing, achieving 85% code coverage and significantly reducing production" +
-          "issues\n" +
-          "• Production Support: Proactively troubleshot and resolved critical issues in production" +
-          "environments, implementing monitoring solutions and establishing incident response procedures to" +
-          "minimize downtime\n" +
-          "• Agile Development: Actively participated in agile development processes including sprint" +
-          "planning, daily standups, and retrospectives, while conducting thorough code reviews to maintain" +
-          "high code quality standards\n" +
-          "• Database Management: Optimized MySQL database performance through query optimization" +
-          "and indexing strategies, improving overall system",
+      period: "2019 – 2022",
+      bullets: [
+        "Built an education platform with Ruby on Rails + Angular used by thousands of learners.",
+        "Designed RESTful APIs for content delivery, auth, and progress tracking.",
+        "Implemented RSpec + Jest test suites that reduced production regressions.",
+        "Optimized Redis-backed caching and database queries for faster response time.",
+      ],
     },
     {
       title: "Web Developer",
       company: "Motorist",
-      period: "06/2022 – Current",
-      description: "• Feature Development: Develop and maintain complex new features for enterprise-scale websites" +
-          "using Ruby on Rails, handling high-volume traffic and ensuring optimal performance for automotive" +
-          "service marketplace\n" +
-          "• UI/UX Implementation: Transform detailed design mockups from Zeplin and Figma into pixelperfect, responsive web interfaces, ensuring cross-browser compatibility and mobile-first design" +
-          "principles\n" +
-          "• Communication Integration: Integrated WhatsApp Business API into customer support system," +
-          "enabling real-time communication between customers and service providers\n" +
-          "• Real-time Features: Developed sophisticated real-time chat functionality using WebSocket" +
-          "technology, facilitating instant communication between vehicle owners and service providers with" +
-          "message delivery confirmation\n" +
-          "• Location Services: Implemented advanced real-time location tracking system using Google Maps" +
-          "API, enabling customers to track service vehicle locations and optimize route planning for mobile" +
-          "mechanics\n" +
-          "• Third-party API Integration: Integrated multiple third-party APIs for vehicle diagnostics, service" +
-          "history tracking, and parts availability, creating a comprehensive automotive service ecosystem\n" +
-          "• Performance Monitoring: Tracked project performance metrics using analytics tools, generated" +
-          "detailed progress reports for management, and identified areas for system optimization\n" +
-          "• Background Processing: Implemented efficient background job processing using Sidekiq for" +
-          "handling heavy computational tasks like vehicle valuation calculations and service scheduling\n" +
-          "• Scalability Solutions: Designed and implemented scalable architecture solutions to handle" +
-          "growing user base and increasing transaction volumes",
+      period: "2022 – 2023",
+      bullets: [
+        "Developed enterprise features on Ruby on Rails with high-volume traffic demands.",
+        "Implemented real-time chat and WhatsApp Business integrations via WebSocket.",
+        "Delivered Google Maps-based live tracking for mobile mechanics and routing.",
+        "Designed scalable background processing with Sidekiq for heavy computations.",
+      ],
+    },
+    {
+      title: "Full Stack Developer",
+      company: "UJET",
+      period: "2023 - 2025",
+      bullets: [
+        "Delivered scalable Rails services and Angular interfaces for high-traffic CCaaS workflows.",
+        "Integrated CRM APIs (Kustomer, Zendesk) to cut manual data entry by 50%.",
+        "Built test strategy across unit, integration, and end-to-end suites (85% coverage).",
+        "Led production support and monitoring improvements to minimize downtime.",
+      ],
+    },
+    {
+      title: "Full Stack Developer",
+      company: "Capable-tech",
+      period: "2025 – 2026",
+      bullets: [
+        "Developed and maintained internal ERP systems for a manufacturing company, including HR management, document management, and time attendance.",
+        "Deployed ERP applications to VPS servers and handled basic server setup and maintenance.",
+        "Designed and built internal websites and public websites published on Google search.",
+        "Managed application data and supported daily business operations.",
+        "Implemented and maintained data backup to ensure data safety and system stability.",
+        "Supported internal users by checking and fixing system and data issues."
+
+      ],
     },
   ]
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="sticky top-0 z-50 w-full border-b hidden md:block bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="px-3 flex h-14 items-center">
-          <div className="mr-4 flex">
-            <Link href="/" className="mr-6 flex items-center space-x-2">
-              <Code className="h-6 w-6" />
-              <span className="font-bold">Portfolio</span>
-            </Link>
-          </div>
-          <nav className="flex items-center space-x-6 text-sm font-medium">
+    <div className={`min-h-screen bg-[#f7f4ee] text-[#0f172a] ${displayFont.className}`}>
+      <header className="sticky top-0 z-50 w-full border-b border-black/10 bg-[#f7f4ee]/80 backdrop-blur">
+        <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
+          <Link href="/" className="flex items-center gap-2 text-lg font-semibold">
+            <Code className="h-5 w-5" />
+            Khang N.
+          </Link>
+          <nav className="hidden items-center gap-6 text-sm font-medium md:flex">
             <Link href="#about">About</Link>
             <Link href="#skills">Skills</Link>
             <Link href="#projects">Projects</Link>
             <Link href="#experience">Experience</Link>
             <Link href="#contact">Contact</Link>
           </nav>
-
+          <Button size="sm" className="hidden md:inline-flex" asChild>
+            <Link href="mailto:khangnd2056@gmail.com">Let's talk</Link>
+          </Button>
         </div>
       </header>
 
-      {/* Hero Section */}
-      <section className="px-3 py-24 md:py-32">
-        <div className="flex flex-col items-center text-center space-y-8">
-          <div className="space-y-4">
-            <img
-              src="https://www.creativefabrica.com/wp-content/uploads/2021/06/14/Software-Developer-Flat-Icon-Graphics-13375448-1.jpg"
-              alt="Profile"
-              width={200}
-              height={200}
-              className="rounded-full mx-auto border-4 border-primary/20"
-            />
-            <div className="space-y-2">
-              <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">Nguyen Dinh Khang</h1>
-              <p className="text-xl text-muted-foreground">Full Stack Developer</p>
-              <div className="flex items-center justify-center space-x-2 text-sm text-muted-foreground">
+      <section className="relative overflow-hidden px-4 pb-20 pt-20">
+        <div className="pointer-events-none absolute inset-0 opacity-60">
+          <ThreeBackdrop />
+        </div>
+        <div className="mx-auto grid max-w-6xl gap-12 md:grid-cols-[1.1fr_0.9fr]">
+          <div className="relative z-10 space-y-6">
+            <div className="flex items-center gap-3 text-sm font-medium text-[#0f172a]/70">
+              <Badge className="rounded-full border border-black/10 bg-white/80">Available for freelance</Badge>
+              <span className="flex items-center gap-2">
                 <MapPin className="h-4 w-4" />
-                <span>Ho Chi Minh City</span>
-              </div>
+                Ho Chi Minh City
+              </span>
+            </div>
+            <div className="space-y-4">
+              <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
+                Nguyen Dinh Khang
+              </h1>
+              <p className="text-lg text-[#0f172a]/70">
+                Full-stack developer focused on building fast, intuitive products and resilient backends. I love
+                turning messy requirements into crisp, reliable web experiences.
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-3">
+              <Button size="lg" asChild>
+                <Link href="mailto:khangnd2056@gmail.com">
+                  <Mail className="mr-2 h-4 w-4" />
+                  Get in touch
+                </Link>
+              </Button>
+              <Button variant="outline" size="lg" asChild>
+                <Link href="https://github.com/maxpamlevi" target="_blank" rel="noreferrer">
+                  <Github className="mr-2 h-4 w-4" />
+                  GitHub
+                </Link>
+              </Button>
+              <Button variant="secondary" size="lg" asChild>
+                <Link href="/resume.pdf">
+                  <Download className="mr-2 h-4 w-4" />
+                  Resume
+                </Link>
+              </Button>
+            </div>
+            <div className="grid gap-4 sm:grid-cols-2">
+              <Card className="border-black/10 bg-white/80">
+                <CardHeader className="pb-2">
+                  <CardDescription>Focus</CardDescription>
+                  <CardTitle className="text-xl">Product Engineering</CardTitle>
+                </CardHeader>
+                <CardContent className="text-sm text-[#0f172a]/70">
+                  Front-end architecture, resilient APIs, and performance optimization.
+                </CardContent>
+              </Card>
+              <Card className="border-black/10 bg-white/80">
+                <CardHeader className="pb-2">
+                  <CardDescription>Currently</CardDescription>
+                  <CardTitle className="text-xl">Capable-Tech</CardTitle>
+                </CardHeader>
+                <CardContent className="text-sm text-[#0f172a]/70">
+                  The company is a member of South China Engineering & Manufacturing Limited (SCEM) in Hong Kong which serve customers in medical, automotive, electronics and IoT areas.
+                </CardContent>
+              </Card>
             </div>
           </div>
-          <p className="max-w-[700px] text-lg text-muted-foreground">
-            I'm a web developer with over 4 years of experience in both front-end and back-end development. I
-            enjoy solving front end problems and creating the best user experience for users. I also spend time
-            learning new technologies and best practices to become a better engineer.
 
+          <div className="relative z-10">
+            <Card className="border-black/10 bg-[#0f172a] text-white shadow-xl">
+              <CardHeader>
+                <CardTitle className={`text-lg ${monoFont.className}`}>~/portfolio/intro</CardTitle>
+                <CardDescription className="text-white/60">System boot sequence</CardDescription>
+              </CardHeader>
+              <CardContent className={`space-y-3 text-sm ${monoFont.className}`}>
+                <div className="flex items-center justify-between border-b border-white/10 pb-3">
+                  <span className="text-white/60">role</span>
+                  <span>full-stack developer</span>
+                </div>
+                <div className="flex items-center justify-between border-b border-white/10 pb-3">
+                  <span className="text-white/60">stack</span>
+                  <span>rails · angular · node · postgresql</span>
+                </div>
+                <div className="flex items-center justify-between border-b border-white/10 pb-3">
+                  <span className="text-white/60">availability</span>
+                  <span>open to freelance</span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-white/60">email</span>
+                  <span>khangnd2056@gmail.com</span>
+                </div>
+              </CardContent>
+            </Card>
+            <div className="mt-6 grid gap-4 sm:grid-cols-2">
+              <Card className="border-black/10 bg-white/80">
+                <CardHeader className="pb-2">
+                  <CardDescription>Experience</CardDescription>
+                  <CardTitle className="text-2xl">5+ years</CardTitle>
+                </CardHeader>
+                <CardContent className="text-sm text-[#0f172a]/70">Across education, logistics, and mobility.</CardContent>
+              </Card>
+              <Card className="border-black/10 bg-white/80">
+                <CardHeader className="pb-2">
+                  <CardDescription>Specialties</CardDescription>
+                  <CardTitle className="text-2xl">APIs & UI</CardTitle>
+                </CardHeader>
+                <CardContent className="text-sm text-[#0f172a]/70">API design, real-time systems, UX polish.</CardContent>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" className="px-4 py-16">
+        <div className="mx-auto max-w-5xl space-y-6 text-center">
+          <h2 className="text-3xl font-semibold tracking-tight">About Me</h2>
+          <p className="text-[#0f172a]/70">
+            I design and ship full-stack products that feel polished on the surface and dependable under the hood.
+            From product discovery to launch, I focus on clean architecture, thoughtful UX, and measurable outcomes.
           </p>
-          <div className="flex space-x-4">
-            <Button size="lg">
-              <Mail className="h-4 w-4 mr-2" />
-              <Link href="mailto:khangnd2056@gmail.com">Get In Touch</Link>
-
-            </Button>
-            <Button variant="outline" size="lg">
-              <Github className="h-4 w-4 mr-2" />
-              <Link href="https://github.com/maxpamlevi">GitHub</Link>
-            </Button>
-          </div>
         </div>
       </section>
 
-      {/* About Section */}
-      <section id="about" className="px-3 py-16">
-        <div className="space-y-8">
-          <div className="text-center space-y-4">
-            <h2 className="text-3xl font-bold tracking-tighter">About Me</h2>
-            <p className="text-muted-foreground max-w-[800px] mx-auto">
-              I'm a dedicated full-stack developer who thrives on turning complex problems into simple, beautiful
-              solutions. With expertise in modern web technologies, I build applications that are not only functional
-              but also scalable and maintainable.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Skills Section */}
-      <section id="skills" className="px-3 py-16">
-        <div className="space-y-8">
-          <div className="text-center space-y-4">
-            <h2 className="text-3xl font-bold tracking-tighter">Skills & Technologies</h2>
-            <p className="text-muted-foreground">Technologies I work with to bring ideas to life</p>
+      <section id="skills" className="px-4 py-16">
+        <div className="mx-auto max-w-6xl space-y-10">
+          <div className="text-center space-y-2">
+            <h2 className="text-3xl font-semibold tracking-tight">Skills & Technologies</h2>
+            <p className="text-[#0f172a]/60">Tools I use to build fast, reliable products.</p>
           </div>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            <Card>
+            <Card className="border-black/10 bg-white/80">
               <CardHeader>
-                <CardTitle className="flex items-center space-x-2">
+                <CardTitle className="flex items-center gap-2">
                   <Globe className="h-5 w-5" />
-                  <span>Front-end</span>
+                  Front-end
                 </CardTitle>
               </CardHeader>
-              <CardContent>
-                <div className="flex flex-wrap gap-2">
-                  {skills.frontend.map((skill) => (
-                    <Badge key={skill} variant="secondary">
-                      {skill}
-                    </Badge>
-                  ))}
-                </div>
+              <CardContent className="flex flex-wrap gap-2">
+                {skills.frontend.map((skill) => (
+                  <Badge key={skill} variant="secondary">
+                    {skill}
+                  </Badge>
+                ))}
               </CardContent>
             </Card>
-            <Card>
+            <Card className="border-black/10 bg-white/80">
               <CardHeader>
-                <CardTitle className="flex items-center space-x-2">
+                <CardTitle className="flex items-center gap-2">
                   <Server className="h-5 w-5" />
-                  <span>Back-end</span>
+                  Back-end
                 </CardTitle>
               </CardHeader>
-              <CardContent>
-                <div className="flex flex-wrap gap-2">
-                  {skills.backend.map((skill) => (
-                    <Badge key={skill} variant="secondary">
-                      {skill}
-                    </Badge>
-                  ))}
-                </div>
+              <CardContent className="flex flex-wrap gap-2">
+                {skills.backend.map((skill) => (
+                  <Badge key={skill} variant="secondary">
+                    {skill}
+                  </Badge>
+                ))}
               </CardContent>
             </Card>
-            <Card>
+            <Card className="border-black/10 bg-white/80">
               <CardHeader>
-                <CardTitle className="flex items-center space-x-2">
+                <CardTitle className="flex items-center gap-2">
                   <Database className="h-5 w-5" />
-                  <span>Testing</span>
+                  Testing
                 </CardTitle>
               </CardHeader>
-              <CardContent>
-                <div className="flex flex-wrap gap-2">
-                  {skills.database.map((skill) => (
-                    <Badge key={skill} variant="secondary">
-                      {skill}
-                    </Badge>
-                  ))}
-                </div>
+              <CardContent className="flex flex-wrap gap-2">
+                {skills.testing.map((skill) => (
+                  <Badge key={skill} variant="secondary">
+                    {skill}
+                  </Badge>
+                ))}
               </CardContent>
             </Card>
-            <Card>
+            <Card className="border-black/10 bg-white/80">
               <CardHeader>
-                <CardTitle className="flex items-center space-x-2">
+                <CardTitle className="flex items-center gap-2">
                   <Code className="h-5 w-5" />
-                  <span>Tools</span>
+                  Tooling
                 </CardTitle>
               </CardHeader>
-              <CardContent>
-                <div className="flex flex-wrap gap-2">
-                  {skills.tools.map((skill) => (
-                    <Badge key={skill} variant="secondary">
-                      {skill}
-                    </Badge>
-                  ))}
-                </div>
+              <CardContent className="flex flex-wrap gap-2">
+                {skills.tooling.map((skill) => (
+                  <Badge key={skill} variant="secondary">
+                    {skill}
+                  </Badge>
+                ))}
               </CardContent>
             </Card>
           </div>
         </div>
       </section>
 
-
-      <section id="projects" className="px-3 py-16">
-        <div className="space-y-8">
-          <div className="text-center space-y-4">
-            <h2 className="text-3xl font-bold tracking-tighter">Featured Projects</h2>
-            <p className="text-muted-foreground">Some of my recent work that I'm proud of</p>
+      <section id="projects" className="px-4 py-16">
+        <div className="mx-auto max-w-6xl space-y-10">
+          <div className="text-center space-y-2">
+            <h2 className="text-3xl font-semibold tracking-tight">Featured Projects</h2>
+            <p className="text-[#0f172a]/60">Real products, real impact.</p>
           </div>
-          <div className="flex flex-wrap justify-center gap-6 ">
-            {projects.map((project, index) => (
-                <Card key={index} className="overflow-hidden w-full md:w-1/3 lg:w-1/4 p-4">
-                <div className="aspect-video relative flex justify-center">
-                  <a href={project.link}  target="_blank">
-                  <img src={project.image.toString()} alt={project.title}  className="object-contain w-100" />
+          <div className="grid gap-6 md:grid-cols-2">
+            {projects.map((project) => (
+              <Card key={project.title} className="group border-black/10 bg-white/80 transition hover:-translate-y-1">
+                <div className="relative overflow-hidden rounded-t-lg border-b border-black/10 bg-white">
+                  <a href={project.link} target="_blank" rel="noreferrer">
+                    <img src={project.image} alt={project.title} className="h-48 w-full object-contain" />
                   </a>
                 </div>
                 <CardHeader>
-                  <CardTitle>{project.title}</CardTitle>
+                  <div className="flex items-center justify-between">
+                    <CardTitle>{project.title}</CardTitle>
+                    <a href={project.link} target="_blank" rel="noreferrer" className="text-sm text-[#0f172a]/60">
+                      Visit <ExternalLink className="ml-1 inline h-4 w-4" />
+                    </a>
+                  </div>
                   <CardDescription>{project.description}</CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-4">
-                  <div className="flex flex-wrap gap-2">
-                    {/*{project.tech.map((tech) => (*/}
-                    {/*  <Badge key={tech} variant="outline" className="text-xs">*/}
-                    {/*    {tech}*/}
-                    {/*  </Badge>*/}
-                    {/*))}*/}
-                  </div>
+                <CardContent className="flex flex-wrap gap-2">
+                  {project.tech.map((tech) => (
+                    <Badge key={tech} variant="outline" className="text-xs">
+                      {tech}
+                    </Badge>
+                  ))}
                 </CardContent>
               </Card>
             ))}
@@ -325,34 +366,33 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Experience Section */}
-      <section id="experience" className="px-3 py-16">
-        <div className="space-y-8">
-          <div className="text-center space-y-4">
-            <h2 className="text-3xl font-bold tracking-tighter">Work Experience</h2>
-            <p className="text-muted-foreground">My professional journey and key achievements</p>
+      <section id="experience" className="px-4 py-16">
+        <div className="mx-auto max-w-5xl space-y-10">
+          <div className="text-center space-y-2">
+            <h2 className="text-3xl font-semibold tracking-tight">Work Experience</h2>
+            <p className="text-[#0f172a]/60">Teams, outcomes, and systems shipped.</p>
           </div>
-          <div className="space-y-3">
-            {experience.map((job, index) => (
-              <Card key={index}>
+          <div className="space-y-6">
+            {experience.map((job) => (
+              <Card key={job.company} className="border-black/10 bg-white/80">
                 <CardHeader>
-                  <div className="flex justify-between items-start">
+                  <div className="flex flex-wrap items-center justify-between gap-3">
                     <div>
-                      {/*<CardTitle></CardTitle>*/}
-                      <CardDescription className="text-base font-medium text-primary">{job.company} - {job.title}</CardDescription>
+                      <CardTitle className="text-lg">{job.company}</CardTitle>
+                      <CardDescription>{job.title}</CardDescription>
                     </div>
-                    <div className="flex items-center text-sm text-muted-foreground">
-                      {/*<Calendar className="h-4 w-4 mr-2" />*/}
-                      {/*{job.period}*/}
+                    <div className="flex items-center gap-2 text-sm text-[#0f172a]/60">
+                      <Calendar className="h-4 w-4" />
+                      {job.period}
                     </div>
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <div  className="text-muted-foreground"
-                      dangerouslySetInnerHTML={{
-                        __html: job.description.replace(/\n/g, '<br>').toString()
-                      }}
-                  ></div>
+                  <ul className="list-disc space-y-2 pl-5 text-sm text-[#0f172a]/70">
+                    {job.bullets.map((bullet) => (
+                      <li key={bullet}>{bullet}</li>
+                    ))}
+                  </ul>
                 </CardContent>
               </Card>
             ))}
@@ -360,46 +400,43 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section id="contact" className="px-3 py-16">
-        <div className="space-y-8">
-          <div className="text-center space-y-4">
-            <h2 className="text-3xl font-bold tracking-tighter">Get In Touch</h2>
-            <p className="text-muted-foreground">Let's discuss your next project or opportunity</p>
-          </div>
-          <div className="flex justify-center space-x-6">
-            <Button size="lg" asChild>
-              <Link href="mailto:khangnd2056@gmail.com">
-                <Mail className="h-5 w-5 mr-2" />
-                Email Me
-              </Link>
-            </Button>
-            {/*<Button variant="outline" size="lg" asChild>*/}
-            {/*  <Link href="https://linkedin.com">*/}
-            {/*    <Linkedin className="h-5 w-5 mr-2" />*/}
-            {/*    LinkedIn*/}
-            {/*  </Link>*/}
-            {/*</Button>*/}
-            <Button variant="outline" size="lg" asChild>
-              <Link href="https://github.com/maxpamlevi">
-                <Github className="h-5 w-5 mr-2" />
-                GitHub
-              </Link>
-            </Button>
-          </div>
+      <section id="contact" className="px-4 py-16">
+        <div className="mx-auto max-w-4xl">
+          <Card className="border-black/10 bg-white/90">
+            <CardContent className="grid gap-6 p-8 md:grid-cols-[1.2fr_0.8fr]">
+              <div className="space-y-3">
+                <h2 className="text-3xl font-semibold">Let's build something sharp</h2>
+                <p className="text-[#0f172a]/70">
+                  Need a developer who can own a feature end-to-end, polish the UI, and keep the backend healthy?
+                  I'm ready to collaborate.
+                </p>
+              </div>
+              <div className="flex flex-col gap-3">
+                <Button size="lg" asChild>
+                  <Link href="mailto:khangnd2056@gmail.com">
+                    <Mail className="mr-2 h-4 w-4" />
+                    Email Me
+                  </Link>
+                </Button>
+                <Button variant="outline" size="lg" asChild>
+                  <Link href="https://github.com/maxpamlevi" target="_blank" rel="noreferrer">
+                    <Github className="mr-2 h-4 w-4" />
+                    View GitHub
+                  </Link>
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t">
-        <div className="px-3 py-8">
-          <div className="flex flex-col items-center justify-between space-y-4 md:flex-row md:space-y-0">
-            <div className="flex items-center space-x-2">
-              <Code className="h-5 w-5" />
-              <span className="font-bold">Khang N.</span>
-            </div>
-            <p className="text-sm text-muted-foreground">© 2024 Khang. All rights reserved.</p>
+      <footer className="border-t border-black/10">
+        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-4 py-8 md:flex-row">
+          <div className="flex items-center gap-2">
+            <Code className="h-5 w-5" />
+            <span className="font-semibold">Khang N.</span>
           </div>
+          <p className="text-sm text-[#0f172a]/60">(c) 2024 Khang. All rights reserved.</p>
         </div>
       </footer>
     </div>
