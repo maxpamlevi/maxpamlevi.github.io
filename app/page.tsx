@@ -2,6 +2,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import ThreeBackdrop from "@/components/ThreeBackdrop"
+import type { Metadata } from "next"
 import {
   Calendar,
   Code,
@@ -20,7 +21,51 @@ import { JetBrains_Mono, Space_Grotesk } from "next/font/google"
 const displayFont = Space_Grotesk({ subsets: ["latin"], weight: ["400", "500", "600", "700"] })
 const monoFont = JetBrains_Mono({ subsets: ["latin"], weight: ["400", "500", "700"] })
 
+export const metadata: Metadata = {
+  title: "Portfolio",
+  description:
+    "Portfolio of Nguyen Dinh Khang, a full-stack developer specializing in product engineering, Rails, Angular, and Next.js.",
+  keywords: [
+    "Nguyen Dinh Khang",
+    "full-stack developer",
+    "Rails",
+    "Angular",
+    "Next.js",
+    "TypeScript",
+    "portfolio",
+    "Ho Chi Minh City",
+  ],
+  openGraph: {
+    title: "Nguyen Dinh Khang | Full-stack Developer",
+    description:
+      "Full-stack developer focused on fast, intuitive products and resilient backends. Available for freelance.",
+    url: "/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "Nguyen Dinh Khang | Full-stack Developer",
+    description:
+      "Full-stack developer focused on fast, intuitive products and resilient backends. Available for freelance.",
+  },
+}
+
 export default function Portfolio() {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Nguyen Dinh Khang",
+    jobTitle: "Full-stack developer",
+    email: "mailto:khangnd2056@gmail.com",
+    url: "https://github.com/maxpamlevi",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Ho Chi Minh City",
+      addressCountry: "VN",
+    },
+    sameAs: ["https://github.com/maxpamlevi"],
+  }
+
   const skills = {
     frontend: ["Angular", "JavaScript", "CSS3", "HTML5", "Responsive Design", "Bootstrap", "Tailwind", "NextJs"],
     backend: ["Ruby", "Ruby on Rails", "Node.js", "Sidekiq", "Redis", "PostgreSQL"],
@@ -121,6 +166,7 @@ export default function Portfolio() {
 
   return (
     <div className={`min-h-screen bg-[#f7f4ee] text-[#0f172a] ${displayFont.className}`}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
       <header className="sticky top-0 z-50 w-full border-b border-black/10 bg-[#f7f4ee]/80 backdrop-blur">
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
           <Link href="/" className="flex items-center gap-2 text-lg font-semibold">
